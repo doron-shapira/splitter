@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+
+html, body {
+   height: 100%;
+   margin: 0;
+}
+
+body {
+   background-color: hsl(185, 41%, 84%);
+   font-family: 'Space Mono', monospace;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   gap: 6rem;
+}
+
+.attribution {
+    position: absolute;
+    bottom: 0;
+ }
+ 
+ .attribution a {
+    color: hsl(228, 45%, 44%);
+ }
+
+ .container {
+    position: relative;
+    width: 50rem;
+    height: 30rem;
+    background-color: hsl(0, 0%, 100%);
+    border-radius: 1.5rem;
+    box-shadow: 0px 0px 20px hsl(185, 41%, 80%); 
+ }
+
+ .result {
+    box-sizing: border-box;
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    width: 50%;
+    height: 85%;
+    padding: 2rem;
+    background-color: hsl(183, 100%, 15%);
+    color: hsl(185, 41%, 84%);
+    border-radius: 1rem;
+ }
+
+ .calc {
+    box-sizing: border-box;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    width: 40%;
+    height: 85%;
+/*     border: 1px solid black; */
+ }
+
+ .top, .bottom {
+    position: relative;
+ }
+
+ #tip-amount, #total {
+    position: absolute;
+    right: 0;
+    transform: translateY(-35px);
+    font-size: 3rem;
+    font-weight: 900;
+    color: hsl(172, 67%, 45%);
+ }
+
+.bottom {
+   margin-top: 3rem;
+}
+
+.top {
+   margin-top: 2rem;
+}
+
+#reset {
+   position: absolute;
+   bottom: 30px;
+   left: 50%;
+   transform: translateX(-50%);
+   font-size: 1rem;
+   font-family: sans-serif;
+   font-weight: bold;
+   letter-spacing: .1rem;
+   width: 336px;
+   height: 2.5rem;
+}
+
+.num-ppl {
+   position: absolute;
+   bottom: 0;
+}
+
+.select-tip {
+   transform: translateY(1.5rem);
+}
+
+.calc button {
+   font-size: 1.5rem;
+   font-family: 'Space Mono', monospace;
+   background-color: hsl(183, 100%, 15%);
+   color: hsl(0, 0%, 100%);
+   border: none;
+   cursor: pointer;
+   width: 6rem;
+   border-radius: .3rem;
+   transition: background-color .1s, color .1s;
+}
+
+.calc button:nth-child(n+3) {
+   margin-bottom: 1rem;
+}
+
+#custom {
+   width: 5.5rem;
+   font-size: 1.5rem;
+   border: none;
+   text-align: center;
+}
+
+.bill input, .num-ppl input {
+   width: 17rem;
+   font-family: 'Space Mono', monospace;
+   font-size: 1.5rem;
+   text-align: right;
+   border: none;
+}
+
+.calc button:hover, .calc button:focus {
+   background-color: hsl(183, 100%, 55%);
+   color: hsl(0, 0%, 10%);
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="splitter.css">
+  <title>Tip Calculator</title>
+</head>
+
+<body>
+
+  <img src="images/logo.svg" alt="splitter">
+  <div class="container">
+
+    <div class="calc">
+
+      <div class="bill">
+        <p>Bill</p>
+        <img src="images/icon-dollar.svg" alt="dollar-icon">
+        <input type="text" placeholder="0">
+      </div>
+
+      <div class="select-tip">
+        <p>Select Tip %</p>
+        <button>5%</button>
+        <button>10%</button>
+        <button>15%</button>
+        <button>25%</button>
+        <button>50%</button>
+        <input type="text" placeholder="Custom" id="custom">
+      </div>
+
+      <div class="num-ppl">
+        <p>Number of People</p>
+        <img src="images/icon-person.svg" alt="person-icon">
+        <input type="text" placeholder="0">
+      </div>
+
+    </div>
+
+    <div class="result">
+      <div class="top">
+        <span>Tip Amount<br>/ person</span>
+        <span id="tip-amount">$0.00</span>
+      </div>
+
+      <div class="bottom">
+        <span>Total<br>/ person</span>
+        <span id="total">$0.00</span>
+      </div>
+
+      <button id="reset">RESET</button>
+    </div>
+  </div>
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://www.frontendmentor.io/profile/doron-shapira">Doron</a>.
+  </footer>
+
+</body>
+</html>
