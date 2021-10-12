@@ -43,7 +43,31 @@ $(document).ready( () => {
 
     $(".select-tip button").on("blur", function() {
         let tip = $("#tip-amount").text().substring(1);
-        let oldTotal = $("#total").text().substring(1) - tip;
+        let oldTotal = ($("#total").text().substring(1) * 10 - tip * 10) / 10;
+        $("#total").text("$" + oldTotal);
+        $("#tip-amount").text("$0.00");
+    })
+
+    $("#custom").on("keyup", function() {
+        let total = $("#total").text().substring(1);
+        let oldTip = $("#tip-amount").text().substring(1);
+        let oldTotal = total - oldTip;
+
+        let tip = $(this).val() * $(".bill input").val() / 100 / $(".num-ppl input").val();
+        if( !isFinite(tip) )
+            tip = '0.00';
+        else if(String(tip).indexOf(".") !== -1)
+            tip = String(tip).slice(0, String(tip).indexOf(".") + 3);
+        let newTotal = Number(oldTotal) + Number(tip);
+        $("#tip-amount").text("$" + tip);
+        $("#total").text("$" + newTotal);
+    })
+
+    $("#custom").on("blur", function() {
+        $(this).val("");
+        let tip = $("#tip-amount").text().substring(1);
+        let total = $("#total").text().substring(1);
+        let oldTotal = total - tip;
         $("#total").text("$" + oldTotal);
         $("#tip-amount").text("$0.00");
     })
