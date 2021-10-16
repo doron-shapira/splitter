@@ -43,7 +43,10 @@ $(document).ready( () => {
 
     $(".select-tip button").on("blur", function() {
         let tip = $("#tip-amount").text().substring(1);
-        let oldTotal = ($("#total").text().substring(1) * 10 - tip * 10) / 10;
+        let total = $("#total").text().substring(1);
+        let oldTotal = total - tip;
+        oldTotal = String(oldTotal);
+        oldTotal = oldTotal.slice(0, oldTotal.indexOf(".") + 3);
         $("#total").text("$" + oldTotal);
         $("#tip-amount").text("$0.00");
     })
