@@ -57,12 +57,21 @@ $(document).ready( () => {
         let oldTotal = total - oldTip;
 
         let tip = $(this).val() * $(".bill input").val() / 100 / $(".num-ppl input").val();
+
         if( !isFinite(tip) )
             tip = '0.00';
         else if(String(tip).indexOf(".") !== -1)
             tip = String(tip).slice(0, String(tip).indexOf(".") + 3);
+
         let newTotal = Number(oldTotal) + Number(tip);
-        $("#tip-amount").text("$" + tip);
+
+        if(String(newTotal).indexOf(".") !== -1)
+            newTotal = String(newTotal).slice(0, String(newTotal).indexOf(".") + 3);
+
+        if($(this).val() === "")
+            $("#tip-amount").text("$0.00");
+        else
+            $("#tip-amount").text("$" + tip);
         $("#total").text("$" + newTotal);
     })
 
@@ -71,6 +80,8 @@ $(document).ready( () => {
         let tip = $("#tip-amount").text().substring(1);
         let total = $("#total").text().substring(1);
         let oldTotal = total - tip;
+        if(String(oldTotal).indexOf(".") !== -1)
+            oldTotal = String(oldTotal).slice(0, String(oldTotal).indexOf(".") + 3);
         $("#total").text("$" + oldTotal);
         $("#tip-amount").text("$0.00");
     })
