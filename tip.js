@@ -44,10 +44,15 @@ $(document).ready( () => {
     $(".select-tip button").on("blur", function() {
         let tip = $("#tip-amount").text().substring(1);
         let total = $("#total").text().substring(1);
-        let oldTotal = total - tip;
+        let oldTotal = (total * 10 - tip * 10) / 10;
+        console.log(oldTotal);
         oldTotal = String(oldTotal);
-        oldTotal = oldTotal.slice(0, oldTotal.indexOf(".") + 3);
-        $("#total").text("$" + oldTotal);
+        if(oldTotal.indexOf(".") !== -1)
+            oldTotal = oldTotal.slice(0, oldTotal.indexOf(".") + 3);
+        if(oldTotal == 0)
+            $("#total").text("$0.00");
+        else
+            $("#total").text("$" + oldTotal);
         $("#tip-amount").text("$0.00");
     })
 
@@ -82,7 +87,10 @@ $(document).ready( () => {
         let oldTotal = total - tip;
         if(String(oldTotal).indexOf(".") !== -1)
             oldTotal = String(oldTotal).slice(0, String(oldTotal).indexOf(".") + 3);
-        $("#total").text("$" + oldTotal);
+        if(oldTotal == 0)
+            $("#total").text("$0.00");
+        else
+            $("#total").text("$" + oldTotal);
         $("#tip-amount").text("$0.00");
     })
 })
